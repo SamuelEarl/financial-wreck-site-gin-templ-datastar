@@ -4,8 +4,8 @@ import (
 	"io/fs"
 	"net/http"
 
-	"financialwreck.com/app/internal/assets"
-	"financialwreck.com/app/views"
+	"financialwreck.com/site/internal/assets"
+	"financialwreck.com/site/views"
 
 	"github.com/a-h/templ"
 	"github.com/gin-gonic/gin"

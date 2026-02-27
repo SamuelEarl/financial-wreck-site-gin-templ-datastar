@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"financialwreck.com/app/views"
+	"financialwreck.com/site/views"
 	"github.com/a-h/templ"
 	"github.com/gin-gonic/gin"
 )

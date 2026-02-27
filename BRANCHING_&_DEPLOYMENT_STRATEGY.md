@@ -18,7 +18,7 @@ These are the branches that will exist in this repo and their purposes:
 * Staging deployments occur from `staging`.
 * Only after all the manual/automated tests pass should you merge the `staging` branch into `main` and test a production deployment.
 * All `staging` deployments should run through a CI/CD pipeline that runs automated tests before deployment. If all tests pass, then deployment continues.
-* After a `staging` deployment is live, all manual and automated tests for the live `statging` app should occur.
+* After a `staging` deployment is live, all manual and automated tests for the live `staging` app should occur.
 
 <br>
 

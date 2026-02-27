@@ -3,8 +3,8 @@ package main
 import (
 	"embed"
 
-	"financialwreck.com/app/internal/assets"
-	"financialwreck.com/app/routes"
+	"financialwreck.com/site/internal/assets"
+	"financialwreck.com/site/routes"
 )
 
 //go:embed static/*

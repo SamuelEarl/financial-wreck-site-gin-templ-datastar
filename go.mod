@@ -1,4 +1,4 @@
-module financialwreck.com/app
+module financialwreck.com/site
 
 go 1.25.5
 
