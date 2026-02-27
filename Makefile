@@ -6,17 +6,19 @@
 # go build
 .DEFAULT_GOAL := build
 
-# The .PHONY line keeps make from getting confused if a directory or file in your project has the same name as one of the listed targets.
-.PHONY: dev clean fmt vet build
+# The .PHONY line keeps `make` from getting confused if a directory or file in your project has the same name as one of the listed targets.
+.PHONY: kill dev clean fmt vet build
+
+# Kill any orphan processes before starting the app.
+kill:
+	-kill -9 $(lsof -t -i:8080) || true  # Main application
+	-kill -9 $(lsof -t -i:4040) || true  # Proxy server
 
 # Run the full development suite
 # 	go run main.go
 # 	go tool air
 #   (go tool templ generate --watch) & (go tool air)
-# Kill any orphan processes before starting the app.
-dev:
-	-kill -9 $(lsof -t -i:8080) || true
-	-kill -9 $(lsof -t -i:4040) || true
+dev: kill
 	go tool air
 
 # TODO: Update the target commands in this file so I use the following `build` and `clean` targets instead of the ones at the bottom of this file.

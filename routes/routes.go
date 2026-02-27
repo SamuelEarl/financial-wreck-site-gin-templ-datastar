@@ -34,6 +34,7 @@ func SetupRouter() *gin.Engine {
 	router.StaticFS("/static", http.FS(subFS))
 
 	// Serve virtual CSS from Templ's built-in `css` functions by creating a middleware that gathers all the Templ CSS (from the `css` functions in your templates).
+	// NOTE: I think this allows Templ to render a <style> tag that contains only the CSS for the components used on the currently displayed page.
 	// Always use a non-nil mux to prevent a 500 crash.
 	emptyMux := http.NewServeMux()
 	cssHandler := templ.NewCSSMiddleware(emptyMux)
