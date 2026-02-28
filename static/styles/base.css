@@ -9,6 +9,7 @@ body {
 	font-size: 100%;
 	color: var(--text-color);
 	font-weight: normal;
+	scroll-behavior: smooth;
 
 	/* Scrollbar styles */
 	::-webkit-scrollbar {
@@ -25,6 +26,11 @@ body {
 		&:hover {
 			background: color-mix(in srgb, var(--primary-bg), white 20%);
 		}
+	}
+
+	/* Put some margin above every section with an ID so the headings don't get hidden behind the header. */
+	[id] {
+		scroll-margin-top: 5rem; /* Set this to the height of your header */
 	}
 }
 

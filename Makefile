@@ -30,7 +30,7 @@ kill:
 dev: clean
 	@clear
 	@echo "🚀 Starting Air with Datastar support..."
-	@(sleep 5 && echo "\n💡 TIP: \n💡 Use localhost:4040 (the Proxy Port) instead of localhost:8080 (the App Port). \n💡 Air's proxy injects a tiny script that can automatically refresh the browser when the server restarts. \n💡 This will help keep your frontend state in sync with your backend changes without manual refreshes.\n") &
+	@echo "\n💡 TIP: \n💡 Use localhost:4040 (the Proxy Port) instead of localhost:8080 (the App Port). \n💡 Air's proxy injects a tiny script that can automatically refresh the browser when the server restarts. \n💡 This will help keep your frontend state in sync with your backend changes without manual refreshes."
 	@go tool air
 
 # TODO: Update the target commands in this file so I use the following `build` and `clean` targets instead of the ones at the bottom of this file.

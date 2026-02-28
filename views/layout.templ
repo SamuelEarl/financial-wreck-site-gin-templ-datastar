@@ -33,9 +33,33 @@ templ Layout(currentPath string, title string, contents templ.Component) {
         <a href="/about" class={ templ.Classes("", templ.KV(activeLinkStyle(), currentPath == "/about")) }>About</a>
         <a href="/counter" class={ templ.Classes("", templ.KV(activeLinkStyle(), currentPath == "/counter")) }>Counter (Datastar)</a>
       </nav>
-      <main>
-        @contents  // This is like the <slot /> in Svelte
-      </main>
+      <div data-signals="{ activeSection: 'why' }">
+        <nav class="secondary-nav">
+          <style>
+            @scope (.secondary-nav) {
+              :scope {
+                position: sticky;
+                top: 20px;
+
+                a {
+                  display: block;
+                  margin-bottom: 8px;
+                }
+                .active {
+                  font-weight: bold;
+                  text-decoration: underline;
+                }
+              }
+            }
+          </style>
+          <a href="#why" data-class-active="$activeSection == 'why'">Why</a>
+          <a href="#goals" data-class-active="$activeSection == 'goals'">Goals</a>
+          <a href="#budget" data-class-active="$activeSection == 'budget'">Budget</a>
+        </nav>
+        <main>
+          @contents  // This is like the <slot /> in Svelte
+        </main>
+      </div>
     </body>
   </html>
 }

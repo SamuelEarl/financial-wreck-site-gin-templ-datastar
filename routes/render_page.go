@@ -1,6 +1,8 @@
 package routes
 
 import (
+	"fmt"
+
 	"financialwreck.com/site/views"
 	"github.com/a-h/templ"
 	"github.com/gin-gonic/gin"
@@ -14,5 +16,6 @@ import (
 func RenderPage(c *gin.Context, status int, title string, template templ.Component) {
 	c.Status(status)
 	path := c.Request.URL.Path
+	fmt.Printf("RENDERING PAGE REQUEST: %s\n", c.Request.URL.Path)
 	views.Layout(path, title, template).Render(c.Request.Context(), c.Writer)
 }
