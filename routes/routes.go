@@ -55,7 +55,7 @@ func SetupRouter() *gin.Engine {
 }
 
 func home(c *gin.Context) {
-	RenderPage(c, 200, "Home Page", views.Home())
+	RenderPage(c, 200, "Go from Financial Wreck to Carefree Retiree!", views.Home())
 }
 
 func ping(c *gin.Context) {

@@ -86,7 +86,8 @@ li {
 }
 
 br {
-	line-height: 0; /* Firefox adds a line-height to <br> tags, so this removes that. */
+	/* Firefox adds a line-height to <br> tags, so this removes that. */
+	line-height: 0;
 	margin-bottom: var(--margin-bottom);
 }
 
@@ -98,7 +99,7 @@ hr {
 
 /* <pre> or triple backticks. */
 pre, code {
-	font-family: var(--monospace-font);
+	font-family: var(--monospace);
 	border-radius: var(--radius);
 	background-color: var(--element-bg);
 }

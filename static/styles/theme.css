@@ -1,18 +1,18 @@
 /* Please read the comments throughout this file for instructions on how to customize the variables to create your own theme. */
 
-/* Many of the variables in this file are referenced throughout the component library. So the *names* of these variables can NOT be altered at all. For example, you cannot change the name `--primary-bg` because `var(--primary-bg)` is referenced throughout the components. But you are allowed to change any of the variable values to match the theme you want. */
+/* Many of the variables in this file are referenced throughout the component library. So the *names* of these variables can NOT be altered at all. For example, you cannot change the name `--primary-bg` because `--primary-bg` is referenced throughout the components. But you are allowed to change any of the variable values to match the theme you want. */
 
 /* If you change any of the CSS variable values in this file that use a length measurement (e.g. 10px, 20%, 0.5rem), then make sure to include the units after the value (e.g. px, %, rem). Some of the CSS rules in these components use the `calc()` function and they require a unit along with the length value in order to work properly. For example, this will work: `--radius: 0px;`, but this could break some styles: `--radius: 0;`. */
 
 /* Many of these ideas are borrowed from shadcn-svelte, Open Props, and Tailwind. */
 
 :where(html) {
-  /* ------------- */
-  /* COLOR PALETTE */
-  /* ------------- */
+  /* -------------
+  COLOR PALETTE
+  ------------- */
   /* Non-Neutral Colors */
-  /* INSTRUCTIONS: You can change any of these variables, including the names. */
-  /* The following colors were taken from https://www.w3schools.com/w3css/w3css_color_metro.asp. */
+  /* INSTRUCTIONS: You can change any of these variables, including the names.
+  The following colors were taken from https://www.w3schools.com/w3css/w3css_color_metro.asp. */
   --light-green: #99b433;
   --green: #00a300;
   --dark-green: #1e7145;
@@ -35,9 +35,10 @@
   /* NOTE: Fanny Pack does not use a transparent variable, like this `--transparent: transparent;`, because that does not make sense. Some people might want their --white or --black variables to be just a little off of pure white or black, so it makes sense to have those variables. But transparent is transparent. There is no such thing as "off transparent". */
   --white: #ffffff;
   --black: #000000;
+  --black-rgb: 0, 0, 0;
 
-  /* These are shades and tints of #50404d (i.e. Purple Taupe). 
-  See https://www.colorhexa.com/50404d. */
+  /* These are shades and tints of #50404d (i.e. Purple Taupe).  */
+  /* See https://www.colorhexa.com/50404d. */
   --neutral-1: #f9f8f9;
   --neutral-2: #e8e2e7;
   --neutral-3: #d6ccd4;
@@ -49,6 +50,7 @@
   --neutral-9: #665162;
   --neutral-10: #50404d;
   --neutral-11: #3a2f38;
+  --neutral-11-rgb: 58, 47, 56;
   --neutral-12: #241d23;
   --neutral-13: #0f0c0e;
 
@@ -61,6 +63,7 @@
   --primary-bg: var(--dark-purple);
   --primary-fg: var(--white);
   --secondary-bg: var(--neutral-11);
+  --secondary-bg-rgb: var(--neutral-11-rgb);
   --secondary-fg: var(--white);
   --tertiary-bg: var(--white);
   --tertiary-fg: var(--neutral-11);
@@ -82,14 +85,14 @@
   /* All the color values in the sections below this line should be references to values in the "MAIN COLORS" section above. Also, references to color values throughout the app should also reference the values in the "MAIN COLORS" section as much as possible. References to colors from the "COLOR PALETTE" section should only occur when there is not a "MAIN COLOR" available for what you need. */
 
   /* The following section contains variables for things like backgrounds, borders, typography.
-  These variables are organized in the same way that Tailwind organizes their utility classes. */
-  /* See https://tailwindcss.com/docs/installation */
+  These variables are organized in the same way that Tailwind organizes their utility classes.
+  See https://tailwindcss.com/docs/installation */
 
   /* INSTRUCTIONS: You can change any of the following values, but do not change the variable names. */
 
-  /* ------------------ */
-  /* BORDERS & OUTLINES */
-  /* ------------------ */
+  /* ------------------
+  BORDERS & OUTLINES
+  ------------------ */
   --border-width: 2px;
   --border-style: solid;
   --border-color: var(--neutral-4);
@@ -98,18 +101,17 @@
   --border-primary: var(--border-width) var(--border-style) var(--primary-bg);
   --border-secondary: var(--border-width) var(--border-style) var(--secondary-bg);
   --border-tertiary: var(--border-width) var(--border-style) var(--tertiary-bg);
-  
+
   --radius: 3px;
 
   --outline-none: 0px;
-  --outline-width: 1px;
+  --outline-width: 2px;
   --outline-style: solid;
   --outline-color: var(--border-color);
   --outline: var(--outline-width) var(--outline-style) var(--outline-color);
   --outline-offset: 3px;
   /* This style is not currently used, but I am leaving it here in case I want to add it to the :hover, :focus styles to add some animation. */
-  --outline-transition: all 0.1s linear; /* transition: var(--outline-transition); */
-
+  --outline-transition: all 0.1s linear; /* Usage Example: transition: var(--outline-transition); */
 
   /* ----- */
   /* SIZES */
@@ -153,7 +155,7 @@
   --padding-v-default: var(--size-2);
   --padding-h-default: var(--size-3);
   --margin-bottom: var(--size-4);
-  
+
 
   /* ---------- */
   /* TYPOGRAPHY */
@@ -161,7 +163,7 @@
   /* Font Families */
   --heading-font: "Designers Bold", serif;
   --body-font: "Proxima Nova", sans-serif;
-  --monospace-font: "Source Code Pro", "monospace";
+  --monospace: "Source Code Pro", "monospace";
 
   /* Line Heights */
   /* These line-height variables are borrowed from Open Props. */
@@ -186,9 +188,9 @@
   --box-shadow-primary: 0 0 0 2px var(--primary-bg);
   --box-shadow-secondary: 0 0 0 2px var(--secondary-bg);
   --box-shadow-tertiary: 0 0 0 2px var(--tertiary-bg);
-  --box-shadow-depth: 0 3px 5px 5px rgba(0, 0, 0, 0.25);
+  --box-shadow-depth: 0 3px 5px 5px rgba(var(--black-rgb), 0.25);
 
-  
+
   /* ----------------------- */
   /* DEFAULT ELEMENT STYLES  */
   /* (not including buttons) */
@@ -198,26 +200,27 @@
   --element-br: var(--border-color); /* border color */
   --element-ol: var(--border-color); /* outline color */
 
-
   /* --------------- */
   /* Disabled Styles */
   /* --------------- */
-  --element-bg-disabled: var(--neutral-4);
-  --element-border-color-disabled: var(--element-bg-disabled);
-  --element-text-color-disabled: var(--neutral-1);
+  --element-bg-disabled: var(--neutral-4); /* disabled background color */
+  --element-fg-disabled: var(--neutral-1); /* disabled foreground color */
+  --element-br-disabled: var(--element-bg-disabled); /* disabled border color */
 
-  /* This is how to use this variable: filter: var(--disabled-filter); */
+  /* TODO: Look at SCSS options for darken and lighten values in disabled styles. I should probably create a class for all the repeated disabled styles (in place of using SCSS mixins, since I am not using SCSS). */
+
+  /* This is how to use this variable: filter: --disabled-filter; */
   /* Multiple filters can be added. See https://www.w3schools.com/cssref/css3_pr_filter.php */
-  /* --inverted: 65%;
+  --inverted: 65%;
   --brightness: 175%;
-  --disabled-filter: invert(var(--inverted)) brightness(var(--brightness)); */
+  --disabled-filter: invert(var(--inverted)) brightness(var(--brightness));
   --disabled-btn-filter: brightness(65%);
 
 
-  /* ----------------------- */
-  /* MEDIA QUERIES VARIABLES */
-  /* ----------------------- */
-  /* These variables are the same as the media query @custom-media values for breakpoints. */
+  /* -----------------------
+  MEDIA QUERIES VARIABLES
+  ----------------------- */
+  /* These variables are the same as the media query breakpoints. */
   /* These can be used to set widths for elements that are responsively designed. */
   --xs-min: 0px;
   --xs-max: 639px;

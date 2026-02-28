@@ -9,6 +9,14 @@
 # The .PHONY line keeps `make` from getting confused if a directory or file in your project has the same name as one of the listed targets.
 .PHONY: kill dev clean fmt vet build
 
+# Remove binary files and any generated _templ.go files.
+clean:
+	@echo "🧹 Cleaning up..."
+	@rm -rf ./tmp
+	@rm -rf ./bin
+	@find . -name "*_templ.go" -delete
+	@echo "✅ Clean complete!"
+
 # Kill any orphan processes before starting the app.
 kill:
 	-kill -9 $(lsof -t -i:8080) || true  # Main application
@@ -18,8 +26,12 @@ kill:
 # 	go run main.go
 # 	go tool air
 #   (go tool templ generate --watch) & (go tool air)
-dev: kill
-	go tool air
+# dev: kill
+dev: clean
+	@clear
+	@echo "🚀 Starting Air with Datastar support..."
+	@(sleep 5 && echo "\n💡 TIP: \n💡 Use localhost:4040 (the Proxy Port) instead of localhost:8080 (the App Port). \n💡 Air's proxy injects a tiny script that can automatically refresh the browser when the server restarts. \n💡 This will help keep your frontend state in sync with your backend changes without manual refreshes.\n") &
+	@go tool air
 
 # TODO: Update the target commands in this file so I use the following `build` and `clean` targets instead of the ones at the bottom of this file.
 
@@ -27,12 +39,6 @@ dev: kill
 # build:
 # 	go tool templ generate
 # 	go build -o bin/main main.go
-
-# # Clean up generated files
-# clean:
-# 	rm -rf ./tmp
-# 	rm -rf ./bin
-# 	find . -name "*_templ.go" -delete
 
 # This has been automated in the .air.toml file >> [build] >> cmd config.
 # templgen:
@@ -43,17 +49,17 @@ dev: kill
 # Any words after the target (like `vet` in the line `build: vet`) are the other targets that must be run before the specified target runs. 
 # The tasks that are performed by the target are on the indented lines after the target.
 # Using ./... tells a Go tool to apply the command to all the files in the current directory and all subdirectories.
-clean:
-	go clean ./...
+# clean:
+# 	go clean ./...
 
-fmt: clean
-	go fmt ./...
+# fmt: clean
+# 	go fmt ./...
 
-vet: fmt
-	go vet ./...
+# vet: fmt
+# 	go vet ./...
 
-build: vet
-	go build
+# build: vet
+# 	go build
 
 
 # ----------------------------------------------------------------

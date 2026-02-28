@@ -1,6 +1,7 @@
 @import "preflight.css";
+/* @import "media-queries.css"; */
 @import "fonts.css";
+@import "icons.css";
 @import "theme.css";
 @import "utility-classes.css";
 @import "base.css";
-@import "icons.css";
